@@ -115,7 +115,7 @@ const recordAndSaveAudio = async (name: string = mediaName.value) => {
 
           <input
             type="text"
-            class="player-input"
+            class="player-input placeholder:text-black"
             v-if="!countDownStarted"
             v-model="mediaName"
             placeholder="Type a name here..."

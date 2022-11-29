@@ -29,13 +29,49 @@ Object.keys(INITIAL).forEach((key, index) => {
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto">
-    <h1 class="text-3xl font-bold leading-7 m-8">Gotta have more cowbell! 🐮🔔</h1>
-    <grid-controls class="mx-8" :num-cols="numCols" />
+  <div class="gradient">
+    <div class="flex h-screen">
+      <div class="app max-w-6xl m-auto rounded-2xl bg-gray-800 p-8 shadow-xl">
+        <h1 class="text-3xl font-bold leading-7 my-8">
+          Gotta have more cowbell! 🐮🔔
+        </h1>
+        <grid-controls class="mx-8" :num-cols="numCols" />
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.gradient::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.app {
+  min-width: 860px;
+  transform: perspective(340px) rotateX(6deg);
+}
+
 .logo {
   will-change: filter; /* 👀 */
 }
